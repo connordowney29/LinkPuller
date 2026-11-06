@@ -17,7 +17,7 @@ public class HtmlRead {
 
                 System.out.println("Enter your website: ");
                 String website = scanner.nextLine();
-                if (website.equalsIgnoreCase("quit"))
+                if (website.equalsIgnoreCase("stop"))
                 {
                     break;
                 }
