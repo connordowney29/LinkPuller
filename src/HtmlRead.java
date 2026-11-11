@@ -32,22 +32,26 @@ public class HtmlRead {
                         new InputStreamReader(urlc.getInputStream()));
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    int start = line.indexOf("http");
+                    int start = line.indexOf("href=\"");
 
                     while (start != -1) {
+                        start += 6;
                         int end = line.indexOf('"', start);
 
                         if (end == -1) {
-                            break;
+                           break;
+                        }
+                        String theLink = line.substring(start, end))
+                        if(theLink.startsWith("/"))
+                        {
+                            theLink = new URL(fred, theLink).toString();
                         }
 
-                        String theLink = line.substring(start, end);
-                        if (theLink.contains(filterWord)) {
+                       if (theLink.contains(filterWord)) {
                             System.out.println(theLink);
                         }
 
-
-                        start = line.indexOf("http", end + 1);
+                        start = line.indexOf("href=\"", end + 1);
                     }
                 }
 
