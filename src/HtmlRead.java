@@ -41,7 +41,7 @@ public class HtmlRead {
                         if (end == -1) {
                            break;
                         }
-                        String theLink = line.substring(start, end))
+                        String theLink = line.substring(start, end);
                         if(theLink.startsWith("/"))
                         {
                             theLink = new URL(fred, theLink).toString();
