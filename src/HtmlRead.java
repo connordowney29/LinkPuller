@@ -19,7 +19,7 @@ public class HtmlRead {
                 System.out.println("Enter your website(enter 'stop' to quit): ");
                 String website = scanner.nextLine();
                 System.out.println();
-                //if user asks to stop, then break the code
+                //if user asks to stop, then break
                 if (website.equalsIgnoreCase("stop"))
                 {
                     break;
@@ -67,8 +67,8 @@ public class HtmlRead {
                         start = line.indexOf("href=\"", end + 1);
                     }
                 }
-                //todo: need to find out what to do with mw-data
                 reader.close();
+                //spicy extension
                 //print number of links found
                 if(counter>1)
                 {
