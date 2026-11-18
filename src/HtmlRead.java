@@ -52,7 +52,7 @@ public class HtmlRead {
                         String theLink = line.substring(start, end);
 
                         //partial link check/fix
-                        //if the link is partial, add the original url
+                        //if the link is partial, add the original url, like the base one to it
                         if(!(theLink.contains(":")) || (theLink.startsWith("."))||(theLink.startsWith("/")))
                         {
                             theLink = new URL(fred, theLink).toString();
@@ -67,12 +67,27 @@ public class HtmlRead {
                         start = line.indexOf("href=\"", end + 1);
                     }
                 }
-
+                //todo: need to find out what to do with mw-data
                 reader.close();
+                //print number of links found
+                if(counter>1)
+                {
+                    System.out.println(counter + " links found");
+                }
+                //grammar stuff
+                if(counter==1)
+                {
+                    System.out.println(counter + " link found");
+                }
+                //if no links are found
+                if(counter == 0)
+                {
+                    System.out.println("Try a more common filter word!");
+                }
+                //spacing
                 System.out.println();
 
-                //print number of links found
-                System.out.println(counter + " links found");
+
             }
         } catch(Exception ex){
             System.out.println(ex);
