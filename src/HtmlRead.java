@@ -53,7 +53,7 @@ public class HtmlRead {
 
                         //partial link check/fix
                         //if the link is partial, add the original url, like the base one to it
-                        if(!(theLink.contains(":")) || (theLink.startsWith("."))||(theLink.startsWith("/")))
+                        if(!(theLink.contains(":")) || (theLink.startsWith("."))||(theLink.startsWith("/")) || (theLink.startsWith("#")))
                         {
                             theLink = new URL(fred, theLink).toString();
                         }
