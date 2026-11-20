@@ -59,7 +59,7 @@ public class HtmlRead {
                         }
                         //check if link has the filter word, and if so, add 1 too link counter
                        if (theLink.contains(filterWord)) {
-                            System.out.println(line);
+                            System.out.println(theLink);
                             counter++;
                         }
                         /*now search for more link starting from the end, so
