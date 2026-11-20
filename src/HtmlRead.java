@@ -39,11 +39,15 @@ public class HtmlRead {
                 int counter = 0;
                 while ((line = reader.readLine()) != null) {
                     //starting point of a link
-                    int start = line.indexOf("href=\"");
+                    int start = line.indexOf("href=");
                     //while loop for if link is found
                     while (start != -1) {
-                        start += 6;
-                        int end = line.indexOf('"', start);
+                        start += 5;
+                        //search for whether its a single quote or double that encloses the link
+                        char singleDouble = line.charAt(start);
+                        //add one to start after the href=" or href='
+                        start++;
+                        int end = line.indexOf(singleDouble, start);
                         //if no link is found, break, end the while loop and go to next line
                         if (end == -1) {
                            break;
@@ -64,7 +68,7 @@ public class HtmlRead {
                         }
                         /*now search for more link starting from the end, so
                         it can print multiple in the same line */
-                        start = line.indexOf("href=\"", end + 1);
+                        start = line.indexOf("href=", end + 1);
                     }
                 }
                 reader.close();
